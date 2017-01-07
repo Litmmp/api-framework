@@ -8,14 +8,19 @@
 
 package me.zhxing.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import me.zhxing.annotation.ApiMapping;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class TestController {
 
     @ApiMapping("/login")
     public Object login(String name, String pwd) {
-        System.out.println(name + "    " + pwd);
-        return null;
+        JSONObject object = new JSONObject();
+        object.put("name", name);
+        object.put("pwd", pwd);
+        return object;
     }
 
 }
